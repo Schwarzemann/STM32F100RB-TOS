@@ -8,7 +8,8 @@ SECTIONS
 {
     .text :
     {
-        *(.vectors)
+        KEEP(*(.vectors))
+        . = ALIGN(256);  # Pad to 256 bytes for clarity
         *(.text*)
         *(.rodata*)
     } > FLASH
